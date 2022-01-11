@@ -1,0 +1,319 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b84d202ce6d388449b977d3d48c0d7c8, type: 3}
+  m_Name: IssueHandlingModule
+  m_EditorClassIdentifier:
+  m_Entries:
+  - Name: cannot-resolve-conflicts
+    Settings:
+      Title: Sync Conflicts
+      Description: There was an issue syncing conflicts.
+      CancelText:
+      AcceptText: OK
+      LogType: 0
+      HasToggle: 0
+      ToggleText:
+      ForceIgnoreToggle: 0
+  - Name: name-empty-error
+    Settings:
+      Title: Name Empty
+      Description: The name cannot be empty.
+      CancelText:
+      AcceptText: OK
+      LogType: 0
+      HasToggle: 0
+      ToggleText:
+      ForceIgnoreToggle: 0
+  - Name: resource-upload-failure
+    Settings:
+      Title: Upload Failed
+      Description: There was a network error that caused upload to fail.
+      CancelText:
+      AcceptText: OK
+      LogType: 0
+      HasToggle: 0
+      ToggleText:
+      ForceIgnoreToggle: 0
+  - Name: resource-folder-name-too-long
+    Settings:
+      Title: Name Too Long
+      Description:
+      CancelText:
+      AcceptText: OK
+      LogType: 0
+      HasToggle: 0
+      ToggleText:
+      ForceIgnoreToggle: 0
+  - Name: resource-folder-name-invalid
+    Settings:
+      Title: Name Invalid
+      Description: The name is too long.
+      CancelText:
+      AcceptText: OK
+      LogType: 0
+      HasToggle: 0
+      ToggleText:
+      ForceIgnoreToggle: 0
+  - Name: proxy-scene-invalid
+    Settings:
+      Title: Proxy Scene Invalid
+      Description: The scene is invalid.
+      CancelText:
+      AcceptText: OK
+      LogType: 0
+      HasToggle: 0
+      ToggleText:
+      ForceIgnoreToggle: 0
+  - Name: data-recording-video-failed
+    Settings:
+      Title: Video Recording Failed
+      Description: Unable to upload Video Recording data!
+      CancelText:
+      AcceptText: OK
+      LogType: 0
+      HasToggle: 0
+      ToggleText:
+      ForceIgnoreToggle: 0
+  - Name: data-recording-list-failed
+    Settings:
+      Title: List Recording Failed
+      Description: Unable to update data list!
+      CancelText:
+      AcceptText: OK
+      LogType: 0
+      HasToggle: 0
+      ToggleText:
+      ForceIgnoreToggle: 0
+  - Name: data-recording-failed
+    Settings:
+      Title: Data Recording Failed
+      Description: Unable to upload data!
+      CancelText:
+      AcceptText: OK
+      LogType: 0
+      HasToggle: 0
+      ToggleText:
+      ForceIgnoreToggle: 0
+  - Name: user-not-signed-in
+    Settings:
+      Title: Not Signed in
+      Description: Cloud sync failed because you are not signed in.
+      CancelText:
+      AcceptText: OK
+      LogType: 0
+      HasToggle: 1
+      ToggleText: Ignore this error until I close the app.
+      ForceIgnoreToggle: 1
+  - Name: network-unreachable
+    Settings:
+      Title: Network Unreachable
+      Description: There is a network connection issue, please check device connectivity.
+      CancelText:
+      AcceptText: OK
+      LogType: 0
+      HasToggle: 0
+      ToggleText:
+      ForceIgnoreToggle: 0
+  - Name: profile-fetch-error
+    Settings:
+      Title: Profile Fetch Error
+      Description: Unable to fetch profile information, please ensure you are signed in and have a clear connection.
+      CancelText:
+      AcceptText: OK
+      LogType: 0
+      HasToggle: 0
+      ToggleText:
+      ForceIgnoreToggle: 0
+  - Name: resource-upload-failure
+    Settings:
+      Title: Resource Upload Error
+      Description: Unable to upload Resource.
+      CancelText:
+      AcceptText: OK
+      LogType: 0
+      HasToggle: 0
+      ToggleText:
+      ForceIgnoreToggle: 0
+  - Name: resource-list-download-failure
+    Settings:
+      Title: Resource List Download Error
+      Description: Unable to download resource list.
+      CancelText:
+      AcceptText: OK
+      LogType: 0
+      HasToggle: 0
+      ToggleText:
+      ForceIgnoreToggle: 0
+  - Name: resource-delete-failure
+    Settings:
+      Title: Resource Delete Error
+      Description: Unable to delete the resource in the cloud. Please check network connectivity.
+      CancelText:
+      AcceptText: OK
+      LogType: 0
+      HasToggle: 0
+      ToggleText:
+      ForceIgnoreToggle: 0
+  - Name: import-project-general-error
+    Settings:
+      Title: Import Project Error
+      Description: Unable to import the project.
+      CancelText:
+      AcceptText: OK
+      LogType: 0
+      HasToggle: 0
+      ToggleText:
+      ForceIgnoreToggle: 0
+  - Name: camera-no-permissions-error
+    Settings:
+      Title: Camera Permission Error
+      Description: Unable to use camera. Please enable camera permissions for this app.
+      CancelText:
+      AcceptText: OK
+      LogType: 0
+      HasToggle: 0
+      ToggleText:
+      ForceIgnoreToggle: 0
+  - Name: no-local-scene
+    Settings:
+      Title: No Local Scene Copy
+      Description: No local copy of scene. Make sure you are signed in and have a stable connection to download.
+      CancelText:
+      AcceptText: OK
+      LogType: 0
+      HasToggle: 0
+      ToggleText:
+      ForceIgnoreToggle: 0
+  - Name: companion-scene-download-failed
+    Settings:
+      Title: Scene Download Error
+      Description: Failed to download scene. Please check network connectivity.
+      CancelText:
+      AcceptText: OK
+      LogType: 0
+      HasToggle: 0
+      ToggleText:
+      ForceIgnoreToggle: 0
+  - Name: companion-file-read
+    Settings:
+      Title: File Read Error
+      Description: Could not read local File. Error code companion-file-read. Please contact support.
+      CancelText:
+      AcceptText: OK
+      LogType: 0
+      HasToggle: 0
+      ToggleText:
+      ForceIgnoreToggle: 0
+  - Name: companion-file-write
+    Settings:
+      Title: File Write Error
+      Description: Could not write to local file. Error code companion-file-write.
+        Please contact support.
+      CancelText:
+      AcceptText: OK
+      LogType: 0
+      HasToggle: 0
+      ToggleText:
+      ForceIgnoreToggle: 0
+  - Name: companion-file-move
+    Settings:
+      Title: Move/Copy File Error
+      Description: Couldn't move or copy a local file. Error code companion-file-move.
+        Please contact support.
+      CancelText:
+      AcceptText: OK
+      LogType: 0
+      HasToggle: 0
+      ToggleText:
+      ForceIgnoreToggle: 0
+  - Name: companion-file-delete
+    Settings:
+      Title: File Delete Error
+      Description: Could not delete local file. Error code companion-file-delete.
+        Please contact support.
+      CancelText:
+      AcceptText: OK
+      LogType: 0
+      HasToggle: 0
+      ToggleText:
+      ForceIgnoreToggle: 0
+  - Name: companion-upload-failed
+    Settings:
+      Title: Upload Failed
+      Description: A file upload attempt failed. A local copy was saved, and can be uploaded later.
+        Please check network connectivity.
+      CancelText:
+      AcceptText: OK
+      LogType: 0
+      HasToggle: 0
+      ToggleText:
+      ForceIgnoreToggle: 0
+  - Name: companion-download-failed
+    Settings:
+      Title: Download Failed
+      Description: A file download attempt failed, please check network connectivity.
+      CancelText:
+      AcceptText: OK
+      LogType: 0
+      HasToggle: 0
+      ToggleText:
+      ForceIgnoreToggle: 0
+  - Name: companion-unknown-resource-upload
+    Settings:
+      Title: Unknown Resource Upload
+      Description: Cannot upload unknown resource type. Please update the application.
+      CancelText:
+      AcceptText: OK
+      LogType: 0
+      HasToggle: 0
+      ToggleText:
+      ForceIgnoreToggle: 0
+  - Name: companion-unknown-resource-download
+    Settings:
+      Title: Unknown Resource Download
+      Description: Cannot process download of unknown resource type. Please update the application.
+      CancelText:
+      AcceptText: OK
+      LogType: 0
+      HasToggle: 0
+      ToggleText:
+      ForceIgnoreToggle: 0
+  - Name: companion-unknown-resource-delete
+    Settings:
+      Title: Unknown Resource Delete
+      Description: Cannot delete and cleanup unknown resource. Please update the application.
+      CancelText:
+      AcceptText: OK
+      LogType: 0
+      HasToggle: 0
+      ToggleText:
+      ForceIgnoreToggle: 0
+  - Name: companion-file-missing
+    Settings:
+      Title: File Missing Error
+      Description: Couldn't find local file. Error code companion-file-missing. Please contact support.
+      CancelText:
+      AcceptText: OK
+      LogType: 0
+      HasToggle: 0
+      ToggleText:
+      ForceIgnoreToggle: 0
+  - Name: companion-asset-load-error
+    Settings:
+      Title: Asset Load Error
+      Description: Couldn't load asset from Asset Bundle.
+      CancelText:
+      AcceptText: OK
+      LogType: 0
+      HasToggle: 0
+      ToggleText:
+      ForceIgnoreToggle: 0

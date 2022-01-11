@@ -1,0 +1,31 @@
+{
+  "name": "com.unity.ar-companion-core",
+  "displayName": "Unity AR Companion Core",
+  "version": "1.0.0-preview",
+  "unity": "2019.4",
+  "unityRelease": "15f1",
+  "description": "Core package for AR companion apps. This includes the Resource Window UI and utility methods for importing resources into the editor. There are also utility methods for managing resources on cloud storage for editor and runtime.",
+  "dependencies": {
+    "com.unity.list-view-framework": "1.1.7-preview",
+    "com.unity.properties": "1.5.0-preview",
+    "com.unity.runtime-scene-serialization": "0.3.2-preview",
+    "com.unity.serialization": "1.5.0-preview",
+    "com.unity.sharp-zip-lib": "1.2.2-preview.2",
+    "com.unity.textmeshpro": "2.1.0",
+    "com.unity.timeline": "1.2.18",
+    "com.unity.xrtools.utils": "1.4.1",
+    "com.unity.xrtools.module-loader": "1.4.1",
+    "com.unity.modules.assetbundle": "1.0.0",
+    "com.unity.modules.screencapture": "1.0.0",
+    "com.unity.modules.unitywebrequest": "1.0.0",
+    "com.unity.modules.unitywebrequesttexture": "1.0.0"
+  },
+  "upmCi": {
+    "footprint": "7171aecc7332d5f1f44c48fa1a6259f5d8176a74"
+  },
+  "repository": {
+    "url": "https://github.cds.internal.unity3d.com/unity/com.unity.ar-companion-core.git",
+    "type": "git",
+    "revision": "3c2bc9b928808573f7c7a67cf87c2fd2063abb89"
+  }
+}

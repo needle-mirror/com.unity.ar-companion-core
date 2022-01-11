@@ -1,0 +1,41 @@
+{
+    "name": "Unity.AR.Companion.Core.Editor",
+    "rootNamespace": "",
+    "references": [
+        "Unity.AR.Companion.Core",
+        "Unity.Properties",
+        "Unity.MARS",
+        "Unity.MARS.Editor",
+        "Unity.MARS.Interfaces",
+        "Unity.XRTools.Utils",
+        "Unity.XRTools.Utils.Editor",
+        "Unity.XRTools.ModuleLoader.Interfaces",
+        "Unity.XRTools.ModuleLoader",
+        "Unity.RuntimeSceneSerialization",
+        "Unity.Serialization",
+        "Unity.Timeline",
+        "Unity.XR.ObjectCapture.Editor"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.mars",
+            "expression": "1.0",
+            "define": "INCLUDE_MARS"
+        },
+        {
+            "name": "com.unity.xr.object-capture",
+            "expression": "0.0",
+            "define": "OBJECT_CAPTURE_AVAILABLE"
+        }
+    ],
+    "noEngineReferences": false
+}
