@@ -150,11 +150,11 @@ namespace Unity.AR.Companion.Core
 
 #if INCLUDE_MARS
         internal static RequestHandle SaveCameraPath(this IUsesCloudStorage storageUser, CompanionProject project, string resourceFolder,
-            string recordingGuid, List<PoseEvent> recording)
+            string recordingGuid, List<PoseEvent> recording, Action<bool> callback = null, ProgressCallback progress = null)
         {
             const int timeout = 0; // Camera paths may be quite large and take a long time to upload
             var cameraPathRecording = new CameraPathRecording { events = recording };
-            return storageUser.SaveBinaryData(project, resourceFolder, recordingGuid, CameraPathType, cameraPathRecording, timeout);
+            return storageUser.SaveBinaryData(project, resourceFolder, recordingGuid, CameraPathType, cameraPathRecording, timeout, callback, progress);
         }
 
         internal static RequestHandle DownloadCameraPath(this IUsesCloudStorage storageUser, string recordingKey, Action<bool, List<PoseEvent>> callback)
@@ -236,23 +236,23 @@ namespace Unity.AR.Companion.Core
         }
 
         internal static RequestHandle SavePlaneData(this IUsesCloudStorage storageUser, CompanionProject project, string resourceFolder,
-            string recordingGuid, List<PlaneEvent> recording)
+            string recordingGuid, List<PlaneEvent> recording, Action<bool> callback = null, ProgressCallback progress = null)
         {
             const int timeout = 0; // Plane data may be quite large and take a long time to upload
             var planeDataRecording = new PlaneDataRecording { events = recording };
-            return storageUser.SaveBinaryData(project, resourceFolder, recordingGuid, PlaneDataType, planeDataRecording, timeout);
+            return storageUser.SaveBinaryData(project, resourceFolder, recordingGuid, PlaneDataType, planeDataRecording, timeout, callback, progress);
         }
 
         internal static RequestHandle SavePointCloud(this IUsesCloudStorage storageUser, CompanionProject project, string resourceFolder,
-            string recordingGuid, List<PointCloudEvent> recording)
+            string recordingGuid, List<PointCloudEvent> recording, Action<bool> callback = null, ProgressCallback progress = null)
         {
             const int timeout = 0; // Point cloud data may be quite large and take a long time to upload
             var pointCloudRecording = new PointCloudRecording { events = recording };
-            return storageUser.SaveBinaryData(project, resourceFolder, recordingGuid, PointCloudType, pointCloudRecording, timeout);
+            return storageUser.SaveBinaryData(project, resourceFolder, recordingGuid, PointCloudType, pointCloudRecording, timeout, callback, progress);
         }
 
         static RequestHandle SaveBinaryData<T>(this IUsesCloudStorage storageUser, CompanionProject project, string resourceFolder,
-            string recordingGuid, string type, T value, int timeout)
+            string recordingGuid, string type, T value, int timeout, Action<bool> callback = null, ProgressCallback progress = null)
         {
             unsafe
             {
@@ -271,14 +271,19 @@ namespace Unity.AR.Companion.Core
                     return default;
                 }
 
-                return storageUser.CloudSaveAsync(key, data, true, (success, responseCode, response) =>
-                {
+                return storageUser.CloudSaveAsync(key, data, true,
+                    (success, responseCode, response) =>
+                    {
 #if AR_COMPANION_DATA_LOG
                     Debug.LogFormat(success ? "{0} recording {1} saved" : "Failed to save {0} recording {1}", type,  recordingGuid);
 #endif
-                    if(!success && storageUser.HasValidIdentity())
-                        CompanionIssueUtils.HandleIssue(CoreIssueCodes.CompanionUploadFailed);
-                }, timeout: timeout);
+                        if (!success && storageUser.HasValidIdentity())
+                            CompanionIssueUtils.HandleIssue(CoreIssueCodes.CompanionUploadFailed);
+
+                        callback?.Invoke(success);
+                    },
+                    timeout: timeout,
+                    progress: progress);
             }
         }
 #endif

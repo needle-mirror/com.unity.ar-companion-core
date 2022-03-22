@@ -8,15 +8,12 @@ namespace Unity.AR.Companion.Core
         static bool CanHandleIssues(out IssueHandlingModule issueHandling)
         {
             issueHandling = ModuleLoaderCore.instance.GetModule<IssueHandlingModule>();
-            if(issueHandling == null)
-                return false;
-
-            return true;
+            return issueHandling != null;
         }
 
         internal static void HandleIssue(string issueCode, Exception exception)
         {
-            if(!CanHandleIssues(out var issueHandling))
+            if (!CanHandleIssues(out var issueHandling))
                 return;
 
             issueHandling.GetIssueDialogSettings(issueCode, out var settings);
@@ -25,7 +22,7 @@ namespace Unity.AR.Companion.Core
 
         internal static void HandleIssue(string issueCode)
         {
-            if(!CanHandleIssues(out var issueHandling))
+            if (!CanHandleIssues(out var issueHandling))
                 return;
 
             issueHandling.RaiseIssueRequest(issueCode);
@@ -33,12 +30,21 @@ namespace Unity.AR.Companion.Core
 
         internal static void HandleIssue(string issueCode, string additionalInfo)
         {
-            if(!CanHandleIssues(out var issueHandling))
+            if (!CanHandleIssues(out var issueHandling))
                 return;
 
             issueHandling.GetIssueDialogSettings(issueCode, out var settings);
             settings.Description = $"{settings.Description}\n{additionalInfo}";
             issueHandling.RaiseIssueRequest(issueCode);
+        }
+
+        internal static void HandleIssue(string issueCode, IssueHandledCallback onIssueHandled)
+        {
+            if (!CanHandleIssues(out var issueHandling))
+                return;
+
+            issueHandling.GetIssueDialogSettings(issueCode, out var settings);
+            issueHandling.RaiseIssueRequest(new IssueHandlingRequest(issueCode, settings, onIssueHandled));
         }
     }
 }

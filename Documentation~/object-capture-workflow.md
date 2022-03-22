@@ -4,15 +4,15 @@ uid: ar-companion-app-object-capture
 
 # Object Capture
 
-Use object capture mode to create a 3D asset for your project from any real world object. To capture an object, take overlapping pictures of it from multiple viewpoints.
+Use Object Capture mode to create a 3D asset for your project from any real world object. To capture an object, take overlapping pictures of it from multiple viewpoints.
 
-Object capture mode relies on Apple's [Object Capture](https://developer.apple.com/augmented-reality/object-capture/) technology. To generate the captured 3D model in the Unity Editor after scanning an object, you must use a Mac computer with macOS Monterey and a "high-power" GPU. However, you can scan the objects used to create a 3D model with either an iOS or an Android device. 
+Object Capture mode relies on Apple's [Object Capture](https://developer.apple.com/augmented-reality/object-capture/) technology. To generate the captured 3D model in the Unity Editor after scanning an object, you must use a Mac computer with macOS Monterey and a "high-power" GPU. However, you can scan the objects used to create a 3D model with either an iOS or an Android device.
 
 See [3D Object Capture requirements](index.md#3d-object-capture-requirements) for more information about the hardware and software requirements.
 
-## Object capture workflow
+## Object Capture Workflow
 
-To scan an object, use the Object capture mode in the companion mobile app.
+To scan an object, use the Object Capture mode in the AR Companion App.
 
 ![Object Capture Mode](images/object-capture/object-capture-mode.png)<br/>*Object Capture mode*
 
@@ -50,6 +50,15 @@ To complete the object capture and generate a 3D object, click the [Create](comp
 
 > [!WARNING]
 > If you tap the **X** button at the top of the Object Capture view, any pictures you have taken for the current scan are discarded.
+
+## Adding the Object Capture package in Unity
+Since the Object Capture package is a preview package, it will not show up directly in the package manager.
+
+To install the Object Capture package
+- Open the Package Manager Window.
+- Click the **+** drop-down.
+- Choose **Add package from git URL...**
+- Type `com.unity.xr.object-capture` and press Enter.
 
 ## Tips for better object captures
 

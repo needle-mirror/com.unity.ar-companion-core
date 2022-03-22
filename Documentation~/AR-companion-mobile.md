@@ -50,7 +50,7 @@ Tap the **AR Capture Mode** at the bottom of a Project's **Resource List** view 
 
 # Technical details
 
-The Unity AR Companion Mobile apps are built with Unity 2019.4.30f1.
+The Unity AR Companion Mobile apps are built with Unity 2020.3.29f1.
 
 ## Requirements
 
@@ -64,7 +64,7 @@ Unity AR Companion Mobile app has the following known limitations:
 
 * There is no limitation on the length of data recordings. Extremely long recordings might crash the app before they can be saved.
 * When linking a mobile project to a Cloud project, the Cloud project name takes precedence.
-* AssetBundles built with Unity versions later than 2019.4.30f1 (chronologically) may not import properly in the app. See [AssetBundle Compatibility](publish-scenes-prefabs.md#assetbundle-compatibility) for more information.
+* AssetBundles built with Unity versions later than 2020.3.29f1 (chronologically) may not import properly in the app. See [AssetBundle Compatibility](publish-scenes-prefabs.md#assetbundle-compatibility) for more information.
 
 <hr>
 \* *Apple and ARKit are trademarks of Apple Inc., registered in the U.S. and other countries and regions.*

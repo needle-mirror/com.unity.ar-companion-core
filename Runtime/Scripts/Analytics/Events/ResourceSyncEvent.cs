@@ -1,4 +1,5 @@
-﻿using Unity.AR.Companion.Core;
+﻿using System;
+using Unity.AR.Companion.Core;
 
 #if INCLUDE_DELTA_DNA
 using UnityEngine;
@@ -28,11 +29,19 @@ namespace Unity.AR.Companion.Analytics
             if (!Application.isPlaying)
                 return;
 
-            DDNA.Instance.RecordEvent(AnalyticsUtils.GetGameEventWithProjectID(k_EventName)
-                .AddParam(k_SyncActionParamName, action.ToString())
-                .AddParam(k_ResourceKeyParamName, key)
-                .AddParam(k_ResourceTypeParamName, type.ToString())
-                .AddParam(k_FileSizeParamName, fileSize));
+            try
+            {
+                DDNA.Instance.RecordEvent(AnalyticsUtils.GetGameEventWithProjectID(k_EventName)
+                    .AddParam(k_SyncActionParamName, action.ToString())
+                    .AddParam(k_ResourceKeyParamName, key)
+                    .AddParam(k_ResourceTypeParamName, type.ToString())
+                    .AddParam(k_FileSizeParamName, fileSize));
+            }
+            catch (Exception exception)
+            {
+                Debug.LogError("Caught an exception trying to send analytics event");
+                Debug.LogException(exception);
+            }
 #endif
         }
     }

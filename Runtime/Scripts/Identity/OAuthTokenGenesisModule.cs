@@ -25,7 +25,9 @@ namespace Unity.AR.Companion
     {
         const string k_GetTokenInfoUrlFormat = "https://api.unity.com/v1/oauth2/tokeninfo?access_token={0}";
         const string k_GetUserDataUrlFormat = "https://api.unity.com/v1/users/{0}";
+        const string k_LogoutUrl = "https://api.unity.com/v1/oauth2/end-session";
         const int k_DefaultTimeout = 30;
+
         static readonly string k_DeepLinkCachePath = Path.Combine(Application.persistentDataPath, "lastSignIn");
 
         GenesisCredential m_GenesisCredential;
@@ -49,13 +51,11 @@ namespace Unity.AR.Companion
 #endif
 #if UNITY_IOS && !UNITY_EDITOR
             static string GeneratedLaunchUrl => $"https://api.unity.com/v1/oauth2/authorize?client_id=mars_companion&redirect_uri=mars%3A%2F%2Fon-registration-completed&response_type=token&state={CreateRandomString(16)}&apple_store_app_login=true";
-
-            const string k_LogoutUrl = "https://api.unity.com/v1/oauth2/end-session";
 #else
             static string GeneratedLaunchUrl => $"https://api.unity.com/v1/oauth2/authorize?client_id=mars_companion&redirect_uri=mars%3A%2F%2Fon-registration-completed&response_type=token&state={CreateRandomString(16)}";
 #endif
 
-#if UNITY_IOS && !UNITY_EDITOR
+#if UNITY_IOS && !UNITY_EDITOR && UNITY_AR_COMPANION_APP_TRACKING
         [DllImport("__Internal")]
         static extern void LaunchSafariWebViewUrl(string url);
 #endif
@@ -153,7 +153,14 @@ namespace Unity.AR.Companion
             }
 
             if (!getTokenInfo.Current)
+            {
+                m_Token = null;
+                m_GenesisCredential = null;
+                if (File.Exists(k_DeepLinkCachePath))
+                    File.Delete(k_DeepLinkCachePath);
+
                 yield break;
+            }
 
             var getUserData = GetUserData();
             while (getUserData.MoveNext())
@@ -262,7 +269,7 @@ namespace Unity.AR.Companion
         static void LaunchBrowserGenesisSignOnRequest()
         {
             var url = GeneratedLaunchUrl;
-#if UNITY_IOS && !UNITY_EDITOR
+#if UNITY_IOS && !UNITY_EDITOR && UNITY_AR_COMPANION_APP_TRACKING
             LaunchSafariWebViewUrl(url);
 #else
             Application.OpenURL(url);
@@ -271,8 +278,10 @@ namespace Unity.AR.Companion
 
         static void LaunchBrowserGenesisSignOutRequest()
         {
-#if UNITY_IOS && !UNITY_EDITOR
+#if UNITY_IOS && !UNITY_EDITOR && UNITY_AR_COMPANION_APP_TRACKING
             LaunchSafariWebViewUrl(k_LogoutUrl);
+#else
+            Application.OpenURL(k_LogoutUrl);
 #endif
         }
 

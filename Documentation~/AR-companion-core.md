@@ -58,6 +58,6 @@ This version of Unity AR Companion Core is compatible with the following version
 Unity AR Companion Core version 1.0 includes the following known limitations:
 
 * When linking a mobile project to a Cloud project, the Cloud project name will take precedence.
-* AssetBundles for scenes and prefabs built with Unity versions newer than 2019.4.30f1 cannot be used in the current version of the app. See [AssetBundle compatibility](publish-scenes-prefabs.md#assetbundle-compatibility) for more information.
+* AssetBundles for scenes and prefabs built with Unity versions newer than 2020.3.29f1 cannot be used in the current version of the app. See [AssetBundle compatibility](publish-scenes-prefabs.md#assetbundle-compatibility) for more information.
 * Video files captured on Android devices will print warnings to the console when they are imported by the Editor on Windows. In 2019.4 these warnings are followed by many more warnings and errors related to `TLS Allocator`. These warnings and errors can be safely ignored, and only happen when the importer runs. You can work around this issue by running the `.mp4` file through a video encoder like Adobe Media Encoder or Handbrake. Required settings will vary depending on the program used, but make sure to use a constant frame rate and disable the audio stream when you do this or you may introduce more issues.
 

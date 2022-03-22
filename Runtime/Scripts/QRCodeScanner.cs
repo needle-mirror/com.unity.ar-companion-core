@@ -1,6 +1,8 @@
 ﻿using System;
-using System.Threading;
 using UnityEngine;
+
+#if UNITY_AR_COMPANION_APP_QR_SCANNER
+using System.Threading;
 using ZXing;
 
 namespace Unity.AR.Companion.Core
@@ -190,3 +192,30 @@ namespace Unity.AR.Companion.Core
 #endif
     }
 }
+#else
+namespace Unity.AR.Companion.Core
+{
+    class QRCodeScanner : MonoBehaviour
+    {
+        public void StartScanning(Action<string> scanCallback, Action<Texture> textureSetupCallback)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void StopScanning()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateImageRect(RectTransform rectTransform, out Rect uvRect)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void NotifyWebCamReady()
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
+#endif

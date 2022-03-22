@@ -1239,7 +1239,7 @@ namespace Unity.AR.Companion.Core
                 case ResourceType.CapturedObject:
                     return m_CapturedObjectsFoldout;
                 default:
-                    Debug.LogError("Unknown resource type: " + type);
+                    Debug.LogError($"Unknown resource type: {type}. You may need to update the AR Companion Core package.");
                     return null;
             }
         }

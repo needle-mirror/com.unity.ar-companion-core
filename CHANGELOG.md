@@ -4,6 +4,27 @@ All notable changes to this package will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.0.1-preview.2] - 2022-03-22
+### Fixed
+- Remove `SafariView.mm` to fix iOS build errors related to missing App Tracking
+- Wrap app tracking and QR code scanning code in preprocessor directives to make extra permissions optional
+
+## [1.0.1-preview.1] - 2022-03-21
+### Fixed
+- Syntax error in `SafariView.mm` which causes iOS builds to fail
+- Issue with UserDataConsentUtils which blocked analytics initialization when launching the app a second time
+
+## [1.0.1-preview] - 2022-03-03
+### Changed
+- Update runtime serialization dependency
+- Update documented app build version from 2019.4.30f1 to 2020.3.29f1
+- Add installation instructions to the documentation index
+
+### Fixed
+- Clarify how to install the Object Capture package in the Object Capture workflow docs
+- Add more information to the unknown resource type error message
+- Issue where users can't log in if they have an invalid cached token
+
 ## [1.0.0-preview] - 2022-01-11
 ### Added
 - APIs to support Object Capture

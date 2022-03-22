@@ -18,6 +18,16 @@ The Companion mobile app captures AR data and transfers it to the linked Unity p
 > [!NOTE]
 > Users without a Unity MARS subscription can use the **Object Capture** feature and limited functionality within the **Create Scene** workflow.
 
+## Install Unity AR Companion Core
+
+The Unity AR Companion Core package will be installed along with new Unity MARS installations. To manually install the Unity AR Companion Core package
+- Open the Package Manager Window.
+- Click the **+** drop-down.
+- Choose **Add package from git URL...**
+- Type `com.unity.ar-companion-core` and press Enter.
+
+To learn more about packages, go to the [Package Manager documentation](https://docs.unity3d.com/Packages/com.unity.package-manager-ui@latest/index.html).
+
 ## Overview
 
 You can use the AR Companion mobile app to record AR data to help build an AR app in Unity. You can upload the captured data to the Unity Editor and use it to design and test your AR application.
@@ -33,7 +43,7 @@ The types of data you can capture include:
 You can modify a Scene you have created in the AR Companion app and transfer it back and forth between the app and the linked Unity Project as you test and modify it. You can also transfer custom Prefabs from your project to the Companion app so that you can place them in the Scenes in the app. 
 
 > [!IMPORTANT] 
-> To view custom assets and Prefabs in the AR Companion Mobile app, you must export them with Unity [2019.4.30.f1]((https://unity3d.com/unity/whats-new/2019.4.30)). See [AssetBundle compatibility](publish-scenes-prefabs.md#assetbundle-compatibility) for more information.
+> To view custom assets and Prefabs in the AR Companion Mobile app, you must export them with Unity [2020.3.29f1]((https://unity3d.com/unity/whats-new/2020.3.29)). See [AssetBundle compatibility](publish-scenes-prefabs.md#assetbundle-compatibility) for more information.
 
 ## Requirements
 
@@ -43,7 +53,7 @@ The current version of Unity AR Companion Core is compatible with the following 
 
 * [2019.4.15f1](https://unity3d.com/unity/whats-new/2019.4.15) or newer
 
-To export Scenes and Prefabs from the Editor to the AR Companion Mobile app, Unity recommends version [2019.4.30f1](https://unity3d.com/unity/whats-new/2019.4.30) for best compatibility. See [AssetBundle compatibility](publish-scenes-prefabs.md#assetbundle-compatibility) for more information.
+To export Scenes and Prefabs from the Editor to the AR Companion Mobile app, Unity recommends version [2020.3.29f1](https://unity3d.com/unity/whats-new/2020.3.29) for best compatibility. See [AssetBundle compatibility](publish-scenes-prefabs.md#assetbundle-compatibility) for more information.
 
 ### AR Companion Mobile requirements
 

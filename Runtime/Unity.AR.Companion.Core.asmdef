@@ -25,11 +25,6 @@
     "defineConstraints": [],
     "versionDefines": [
         {
-            "name": "com.unity.deltadna.sdk",
-            "expression": "4.0",
-            "define": "INCLUDE_DELTA_DNA"
-        },
-        {
             "name": "com.unity.mars",
             "expression": "1.0",
             "define": "INCLUDE_MARS"

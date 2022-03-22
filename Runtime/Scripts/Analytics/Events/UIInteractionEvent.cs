@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 #if INCLUDE_DELTA_DNA
+using System;
 using DeltaDNA;
 #endif
 
@@ -22,7 +23,8 @@ namespace Unity.AR.Companion.Analytics
         Proxy,
         Environment,
         RecordData,
-        Marker
+        Marker,
+        ObjectCapture
     }
 
     static class UIInteractionEvent
@@ -37,10 +39,18 @@ namespace Unity.AR.Companion.Analytics
             if (!Application.isPlaying)
                 return;
 
-            DDNA.Instance.RecordEvent(AnalyticsUtils.GetGameEventWithProjectID(k_EventName)
-                .AddParam(AnalyticsUtils.UserRoleParamName, AnalyticsUtils.CurrentUserRole)
-                .AddParam(k_ActionParamName, action.ToString())
-                .AddParam(k_LocationParamName, location.ToString()));
+            try
+            {
+                DDNA.Instance.RecordEvent(AnalyticsUtils.GetGameEventWithProjectID(k_EventName)
+                    .AddParam(AnalyticsUtils.UserRoleParamName, AnalyticsUtils.CurrentUserRole)
+                    .AddParam(k_ActionParamName, action.ToString())
+                    .AddParam(k_LocationParamName, location.ToString()));
+            }
+            catch (Exception exception)
+            {
+                Debug.LogError("Caught an exception trying to send analytics event");
+                Debug.LogException(exception);
+            }
 #endif
         }
     }
