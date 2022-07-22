@@ -1,15 +1,15 @@
 {
   "name": "com.unity.ar-companion-core",
   "displayName": "Unity AR Companion Core",
-  "version": "1.0.1-preview.2",
-  "unity": "2019.4",
-  "unityRelease": "15f1",
+  "version": "2.0.0-preview",
+  "unity": "2020.3",
+  "unityRelease": "17f1",
   "description": "Core package for AR companion apps. This includes the Resource Window UI and utility methods for importing resources into the editor. There are also utility methods for managing resources on cloud storage for editor and runtime.",
   "dependencies": {
     "com.unity.list-view-framework": "1.1.7-preview",
-    "com.unity.properties": "1.5.0-preview",
-    "com.unity.runtime-scene-serialization": "0.3.4-preview",
-    "com.unity.serialization": "1.5.0-preview",
+    "com.unity.properties": "1.8.3-preview",
+    "com.unity.runtime-scene-serialization": "0.6.0-preview",
+    "com.unity.serialization": "1.8.3-preview",
     "com.unity.sharp-zip-lib": "1.2.2-preview.2",
     "com.unity.textmeshpro": "2.1.0",
     "com.unity.timeline": "1.2.18",
@@ -20,15 +20,15 @@
     "com.unity.modules.unitywebrequest": "1.0.0",
     "com.unity.modules.unitywebrequesttexture": "1.0.0"
   },
-  "upm": {
-    "changelog": "### Fixed\n- Remove `SafariView.mm` to fix iOS build errors related to missing App Tracking\n- Wrap app tracking and QR code scanning code in preprocessor directives to make extra permissions optional"
+  "_upm": {
+    "changelog": "### Changed\n- Update minimum Unity version to 2020.3.17f1\n- Update runtime serialization dependency to fix compatibility issues in 2021.3 LTS"
   },
   "upmCi": {
-    "footprint": "13350dee489d2e9cd0a4d1b37c0a164769f4ff27"
+    "footprint": "44a824341bd300009f439266efe4dc08ce060f2c"
   },
   "repository": {
     "url": "https://github.cds.internal.unity3d.com/unity/com.unity.ar-companion-core.git",
     "type": "git",
-    "revision": "ef3bd43f6551f9b169477491cd25ecb71add6e16"
+    "revision": "b067e3d7dabdc4e39089bc63d8ce9685721548ba"
   }
 }

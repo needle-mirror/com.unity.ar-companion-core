@@ -51,7 +51,7 @@ You can modify a Scene you have created in the AR Companion app and transfer it 
 
 The current version of Unity AR Companion Core is compatible with the following versions of the Unity Editor:
 
-* [2019.4.15f1](https://unity3d.com/unity/whats-new/2019.4.15) or newer
+* [2020.3.17f1](https://unity3d.com/unity/whats-new/2020.3.17) or newer
 
 To export Scenes and Prefabs from the Editor to the AR Companion Mobile app, Unity recommends version [2020.3.29f1](https://unity3d.com/unity/whats-new/2020.3.29) for best compatibility. See [AssetBundle compatibility](publish-scenes-prefabs.md#assetbundle-compatibility) for more information.
 

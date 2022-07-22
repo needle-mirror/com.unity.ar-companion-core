@@ -51,13 +51,13 @@ The **Device View** will have its scene camera follow the recorded camera path, 
 
 This version of Unity AR Companion Core is compatible with the following versions of the Unity Editor:
 
-* [2019.4.15f1](https://unity3d.com/unity/whats-new/2019.4.15) or later
+* [2020.3.17f1](https://unity3d.com/unity/whats-new/2020.3.17) or later
 
 ## Known limitations
 
-Unity AR Companion Core version 1.0 includes the following known limitations:
+Unity AR Companion Core version 2.0 includes the following known limitations:
 
 * When linking a mobile project to a Cloud project, the Cloud project name will take precedence.
 * AssetBundles for scenes and prefabs built with Unity versions newer than 2020.3.29f1 cannot be used in the current version of the app. See [AssetBundle compatibility](publish-scenes-prefabs.md#assetbundle-compatibility) for more information.
-* Video files captured on Android devices will print warnings to the console when they are imported by the Editor on Windows. In 2019.4 these warnings are followed by many more warnings and errors related to `TLS Allocator`. These warnings and errors can be safely ignored, and only happen when the importer runs. You can work around this issue by running the `.mp4` file through a video encoder like Adobe Media Encoder or Handbrake. Required settings will vary depending on the program used, but make sure to use a constant frame rate and disable the audio stream when you do this or you may introduce more issues.
+* Video files captured on Android devices will print warnings to the console when they are imported by the Editor on Windows. These warnings can be safely ignored, and only happen when the importer runs. You can work around this issue by running the `.mp4` file through a video encoder like Adobe Media Encoder or Handbrake. Required settings will vary depending on the program used, but make sure to use a constant frame rate and disable the audio stream when you do this or you may introduce more issues.
 
