@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Unity.AR.Companion.CloudStorage;
+using Unity.Collections.LowLevel.Unsafe.NotBurstCompatible;
 using Unity.RuntimeSceneSerialization;
 using UnityEngine;
 
@@ -260,7 +261,8 @@ namespace Unity.AR.Companion.Core
                 using (var stream = new UnsafeAppendBuffer(16, 8, Allocator.Temp))
                 {
                     BinarySerialization.ToBinary(&stream, value);
-                    data = stream.ToBytes();
+                    var streamToBytes = stream;
+                    data = streamToBytes.ToBytesNBC();
                 }
 
                 WriteLocalBinaryData(project, resourceFolder, recordingGuid, type, data);

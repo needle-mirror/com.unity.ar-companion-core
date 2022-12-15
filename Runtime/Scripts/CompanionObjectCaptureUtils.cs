@@ -3,10 +3,15 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using ICSharpCode.SharpZipLib.Zip;
 using Unity.AR.Companion.CloudStorage;
 using Unity.RuntimeSceneSerialization;
 using UnityEngine;
+
+#if UNITY_SHARPZIPLIB_1_3_OR_NEWER
+using Unity.SharpZipLib.Zip;
+#else
+using ICSharpCode.SharpZipLib.Zip;
+#endif
 
 namespace Unity.AR.Companion.Core
 {

@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Unity.XRTools.Utils;
 using Unity.Properties;
-using Unity.RuntimeSceneSerialization;
 using Unity.RuntimeSceneSerialization.Prefabs;
+using Unity.XRTools.Utils;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,7 +16,7 @@ namespace Unity.AR.Companion.Core
         void OnOptionalConstraintToggleValueChanged(bool value);
         Type DeclaredValueType();
         object GetValue();
-        bool TrySetValue<TValue>(TValue value, SerializationMetadata metadata = null);
+        void SetValue<TValue>(TValue value);
         bool HasAttribute<T>() where T : Attribute;
     }
 
@@ -62,8 +61,7 @@ namespace Unity.AR.Companion.Core
 
         public void OnOptionalConstraintToggleValueChanged(bool value)
         {
-            if (!OptionalConstraintProperty.TrySetValue(ref m_TypedContainer, value))
-                Debug.LogError("could not set");
+            OptionalConstraintProperty.SetValue(ref m_TypedContainer, value);
         }
 
         public Type DeclaredValueType() { return Property.DeclaredValueType(); }
@@ -73,12 +71,12 @@ namespace Unity.AR.Companion.Core
             return Property.GetValue(ref m_TypedContainer);
         }
 
-        public bool TrySetValue<TValue>(TValue value, SerializationMetadata metadata = null)
+        public void SetValue<TValue>(TValue value)
         {
             if (m_PrefabMetadata)
-                m_PrefabMetadata.SetPropertyOverride(m_PropertyPath, m_TransformPath, m_ComponentIndex, value, metadata);
+                m_PrefabMetadata.SetPropertyOverride(m_PropertyPath, m_TransformPath, m_ComponentIndex, value);
 
-            return Property.TrySetValue(ref m_TypedContainer, value);
+            Property.SetValue(ref m_TypedContainer, value);
         }
 
         public bool HasAttribute<T>() where T : Attribute

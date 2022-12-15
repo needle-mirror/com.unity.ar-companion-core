@@ -4,6 +4,19 @@ All notable changes to this package will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [3.0.0-exp.3] - 2022-12-15
+### Changed
+- Update runtime serialization dependency to fix issues deserializing scenes with missing scripts
+
+## [3.0.0-exp.2] - 2022-12-13
+### Changed
+- Update runtime serialization dependency to fix issues deserializing scenes with prefabs
+
+## [3.0.0-exp.1] - 2022-11-18
+### Changed
+- Update minimum Unity version to 2021.3.0f1
+- Update runtime serialization dependency to fix compatibility issues in Unity 2022.2 and above
+
 ## [2.0.0-preview] - 2022-07-22
 ### Changed
 - Update minimum Unity version to 2020.3.17f1

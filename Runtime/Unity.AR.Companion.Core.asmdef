@@ -14,7 +14,8 @@
         "Unity.EditorXR.Interfaces",
         "Unity.Serialization",
         "Unity.Collections",
-        "Unity.DeltaDNA.SDK"
+        "Unity.DeltaDNA.SDK",
+        "Unity.SharpZipLib"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
@@ -28,6 +29,11 @@
             "name": "com.unity.mars",
             "expression": "1.0",
             "define": "INCLUDE_MARS"
+        },
+        {
+            "name": "com.unity.sharp-zip-lib",
+            "expression": "1.3",
+            "define": "UNITY_SHARPZIPLIB_1_3_OR_NEWER"
         }
     ],
     "noEngineReferences": false

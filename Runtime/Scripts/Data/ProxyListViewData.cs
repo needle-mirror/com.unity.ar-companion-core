@@ -13,13 +13,15 @@ using Unity.MARS.Attributes;
 using Unity.MARS.Query;
 #endif
 
+using UnityObject = UnityEngine.Object;
+
 namespace Unity.AR.Companion.Core
 {
     class ProxyListViewData : NestedListViewItemData<ProxyListViewData, int>
     {
         class OptionalConstraintPropertyPathGetterVisitor : PropertyVisitor
         {
-            public readonly Dictionary<string, string> OptionalConstraintProperties = new Dictionary<string, string>();
+            public readonly Dictionary<string, string> OptionalConstraintProperties = new();
 
             string m_PropertyPath;
 
@@ -48,7 +50,7 @@ namespace Unity.AR.Companion.Core
         class OptionalConstraintPropertyGetterVisitor : PropertyVisitor
         {
             public Dictionary<string, string> OptionalConstraintProperties;
-            public readonly Dictionary<string, IProperty> OptionalConstraintBoolProperties = new Dictionary<string, IProperty>();
+            public readonly Dictionary<string, IProperty> OptionalConstraintBoolProperties = new();
 
             string m_PropertyPath;
 
@@ -115,14 +117,14 @@ namespace Unity.AR.Companion.Core
                 children.Add(propertyData);
                 var previousParent = ParentData;
                 ParentData = propertyData;
-                if (!IsCollapsedProperty(property))
+                if (!IsCollapsedProperty<TValue>())
                     base.VisitProperty(property, ref container, ref value);
 
                 ParentData = previousParent;
                 m_PropertyPath = previousPropertyPath;
             }
 
-            static bool IsCollapsedProperty<TContainer, TValue>(Property<TContainer, TValue> property)
+            static bool IsCollapsedProperty<TValue>()
             {
                 var propertyType = typeof(TValue);
                 if (propertyType == typeof(Vector2) || propertyType == typeof(Vector3) || propertyType == typeof(Vector4) || propertyType == typeof(Quaternion))
@@ -133,7 +135,7 @@ namespace Unity.AR.Companion.Core
                     return true;
                 if (propertyType == typeof(LayerMask))
                     return true;
-                if (property is IUnityObjectReferenceValueProperty<TContainer>)
+                if (typeof(UnityObject).IsAssignableFrom(propertyType))
                     return true;
 
                 return false;
@@ -180,7 +182,7 @@ namespace Unity.AR.Companion.Core
 #endif
 
         // Local method use only -- created here to reduce garbage collection. Collections must be cleared before use
-        static readonly List<Component> k_Components = new List<Component>();
+        static readonly List<Component> k_Components = new();
 
 #if INCLUDE_MARS
         public static ProxyListViewData CreateProxyListViewData(Proxy proxy, ref int autoIncrement, int depth = 0)
@@ -208,7 +210,7 @@ namespace Unity.AR.Companion.Core
             }
 
 #if !NET_DOTS && !ENABLE_IL2CPP
-            SceneSerialization.RegisterPropertyBag(typeof(Proxy));
+            SceneSerialization.RegisterPropertyBagRecursively(typeof(Proxy));
 #endif
 
             if (PropertyContainer.TryGetProperty(ref proxy, new PropertyPath(k_ColorPropertyPath), out var colorProperty))
@@ -273,14 +275,14 @@ namespace Unity.AR.Companion.Core
             listViewData.Add(componentProperty);
 
             var optionalPropertyPathVisitor = new OptionalConstraintPropertyPathGetterVisitor();
-            PropertyContainer.Visit(component, optionalPropertyPathVisitor);
+            PropertyContainer.Accept(optionalPropertyPathVisitor, component);
 
             var optionalPropertyVisitor = new OptionalConstraintPropertyGetterVisitor
             {
                 OptionalConstraintProperties = optionalPropertyPathVisitor.OptionalConstraintProperties
             };
 
-            PropertyContainer.Visit(component, optionalPropertyVisitor);
+            PropertyContainer.Accept(optionalPropertyVisitor, component);
 
             var visitor = new PropertyGetterVisitor
             {
@@ -293,7 +295,7 @@ namespace Unity.AR.Companion.Core
                 OptionalConstraintBoolProperties = optionalPropertyVisitor.OptionalConstraintBoolProperties
             };
 
-            PropertyContainer.Visit(component, visitor);
+            PropertyContainer.Accept(visitor, component);
             autoIncrement = visitor.AutoIncrement;
         }
 
@@ -345,7 +347,7 @@ namespace Unity.AR.Companion.Core
                 template = k_ProxyListDropdownItemTemplate;
             else if (propertyType.IsPrimitive)
                 template = k_ProxyListNumberItem;
-            else if (property is IUnityObjectReferenceValueProperty<TContainer>)
+            else if (typeof(UnityObject).IsAssignableFrom(propertyType))
                 template = k_ProxyListObjectFieldItemTemplate;
             else
                 template = k_ProxyListGenericItemTemplate;

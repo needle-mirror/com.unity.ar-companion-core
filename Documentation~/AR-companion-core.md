@@ -51,11 +51,11 @@ The **Device View** will have its scene camera follow the recorded camera path, 
 
 This version of Unity AR Companion Core is compatible with the following versions of the Unity Editor:
 
-* [2020.3.17f1](https://unity3d.com/unity/whats-new/2020.3.17) or later
+* [2021.3.0f1](https://unity3d.com/unity/whats-new/2021.3.0) or later
 
 ## Known limitations
 
-Unity AR Companion Core version 2.0 includes the following known limitations:
+Unity AR Companion Core version 3.0 includes the following known limitations:
 
 * When linking a mobile project to a Cloud project, the Cloud project name will take precedence.
 * AssetBundles for scenes and prefabs built with Unity versions newer than 2020.3.29f1 cannot be used in the current version of the app. See [AssetBundle compatibility](publish-scenes-prefabs.md#assetbundle-compatibility) for more information.

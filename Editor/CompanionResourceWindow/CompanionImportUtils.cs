@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using ICSharpCode.SharpZipLib.Zip;
 using Unity.AR.Companion.CloudStorage;
 using Unity.RuntimeSceneSerialization;
 using Unity.XRTools.ModuleLoader;
@@ -31,6 +30,12 @@ using Unity.MARS.Simulation;
 using UnityEditor.MARS.Authoring;
 using UnityEditor.MARS.Data.Recorded;
 using UnityEditor.MARS.Simulation;
+#endif
+
+#if UNITY_SHARPZIPLIB_1_3_OR_NEWER
+using Unity.SharpZipLib.Zip;
+#else
+using ICSharpCode.SharpZipLib.Zip;
 #endif
 
 namespace Unity.AR.Companion.Core

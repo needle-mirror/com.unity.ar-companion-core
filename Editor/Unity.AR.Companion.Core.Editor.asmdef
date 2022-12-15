@@ -35,6 +35,11 @@
             "name": "com.unity.xr.object-capture",
             "expression": "0.0",
             "define": "OBJECT_CAPTURE_AVAILABLE"
+        },
+        {
+            "name": "com.unity.sharp-zip-lib",
+            "expression": "1.3",
+            "define": "UNITY_SHARPZIPLIB_1_3_OR_NEWER"
         }
     ],
     "noEngineReferences": false
